@@ -5,7 +5,7 @@ import { ParticipantRoleType, useGetTournamentsQuery } from '@generated/graphql'
 import { useAuth } from '@hooks/useAuth'
 import { Loader } from '@components/ui/loader'
 import { handleError } from '@handlers/errorHandler'
-import { Box, Button, Paper, Tab, Tabs, Fab } from '@mui/material'
+import { Box, Button, Paper, Tab, Tabs, Fab, FormControlLabel, Checkbox, FormGroup } from '@mui/material'
 import { TournamentSearch } from '@components/tournament/tournamentSearch'
 import { AddRounded } from '@mui/icons-material'
 import { useWindowSize } from '@hooks/useWindowSize'
@@ -126,7 +126,23 @@ const Index: React.FC = () => {
           </Paper>
 
           <Paper className={styles.filter}>
-            {'Filters (Coming Soon) \u2122'}
+            <FormGroup>
+              <h3>Games</h3>
+              <FormControlLabel control={<Checkbox />} label="Fortnite" />
+              <FormControlLabel control={<Checkbox />} label="League of Legends" />
+              <FormControlLabel control={<Checkbox />} label="Rocket League" />
+              <FormControlLabel control={<Checkbox />} label="Call of Duty" />
+
+              <h3>Party Size</h3>
+              <FormControlLabel control={<Checkbox />} label="Solos" />
+              <FormControlLabel control={<Checkbox />} label="Duo" />
+              <FormControlLabel control={<Checkbox />} label="Trios/Squads" />
+
+              <h3>Status</h3>
+              <FormControlLabel control={<Checkbox />} label="Open" />
+              <FormControlLabel control={<Checkbox />} label="Coming Soon" />
+            </FormGroup>
+            <Button variant="contained" color="primary" onMouseOver={() => this.style.backgroundColor = 'red'} onMouseOut={() => this.style.backgroundColor = ''}>Search</Button>
           </Paper>
         </Box>
       )}
